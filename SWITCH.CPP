@@ -35,7 +35,7 @@ using namespace std;
  			break;
  			case 'd': case 'D':
  			cuota= cantidad * 0.010;
- 			cout<<"el total a pagar es:"<< cuota<<endl;
+ 			cout<<"el total de la cuota a pagar es:"<< cuota<<endl;
  			total = cantidad + (cuota*180);
  			cout<<"el total a pagar es: "<< total<<endl;;
  			break;
