@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double valorPrestamo;
+    int opcionPrestamo;
+    double tasaInteres = 0.0;
+    int plazoPrestamo;
+    double cuotaMensual;
+    double totalPagar;
+
+    // Pedir al usuario el valor del préstamo
+    cout << "Ingrese el valor del prestamo: ";
+    cin >> valorPrestamo;
+
+    // Pedir al usuario la opción de préstamo en meses
+    cout << "Ingrese la opcion de prestamo en meses (1 para menos de 1 año, 2 para 2-3 años, 3 para 4-5 años, 4 para 6-15 años): ";
+    cin >> opcionPrestamo;
+
+    // Calcular la tasa de interés según la opción de préstamo en meses
+    switch(opcionPrestamo) {
+        case 1:
+            tasaInteres = 0.01; // 1%
+            plazoPrestamo = 12; // 1 año
+            break;
+        case 2:
+            tasaInteres = 0.02; // 2%
+            plazoPrestamo = 36; // 3 años
+            break;
+        case 3:
+            tasaInteres = 0.05; // 5%
+            plazoPrestamo = 60; // 5 años
+            break;
+        case 4:
+            tasaInteres = 0.10; // 10%
+            plazoPrestamo = 180; // 15 años
+            break;
+        default:
+            cout << "Opcion de prestamo invalida" << endl;
+            return 1; // Salir del programa debido a una opción de préstamo inválida
+    }
+
+    // Calcular la cuota mensual
+    double tasaMensual = tasaInteres / 12.0;
+    cuotaMensual = (valorPrestamo * tasaMensual) / (1 - pow(1 + tasaMensual, -plazoPrestamo));
+
+    // Calcular el total a pagar
+    totalPagar = cuotaMensual * plazoPrestamo;
+
+    // Mostrar la cuota mensual y el total a pagar
+    cout << "La cuota mensual es: $" << cuotaMensual << endl;
+    cout << "El total a pagar es: $" << totalPagar << endl;
+
+    return 0;
+}
